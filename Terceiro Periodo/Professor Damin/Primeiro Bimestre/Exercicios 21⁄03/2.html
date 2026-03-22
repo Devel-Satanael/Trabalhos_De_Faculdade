@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h2>Preencha a Matriz 4x4</h2>
+    <textarea id="texto" placeholder="Digite aqui..."></textarea>
+    
+    <button onclick="resolva()">Resolva</button>
+    
+    <script>
+        function resolva(){
+            
+            const input = document.getElementById("texto").value;
+            
+            const numeros = input.split(/[\s,]+/).map(Number);
+            
+            let media = 0;
+            let matriz = [];
+            let maiores = 0;
+            let matrizDigitada = "";
+            let contador = 0;
+            let maioresDigitados = 0;
+
+            for (let i = 0; i < 4; i++){
+                matriz [i] = [];
+                for (let j = 0; j < 4; j++){
+                    
+                    let num = numeros[contador]
+                    matriz[i][j] = num;
+
+                    media += num / 16;
+
+                    matrizDigitada += num + " ";
+                    if (num > 10){
+                        maiores ++;
+                        maioresDigitados += num + " ";
+                    }
+                    contador ++;
+                }
+                matrizDigitada += "\n"; 
+            }
+            
+          
+            alert(
+                "a) Matriz Digitada:\n" + matrizDigitada + "\n" +
+                "b) media de todos os elementos: " + media + "\n" +
+                "c) existem: " + maiores + " numeros maiores que 10, sendo eles:" + maioresDigitados
+            );
+        }
+    </script>
+</body>
+</html>

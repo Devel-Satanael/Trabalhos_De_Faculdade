@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 6</title>
+</head>
+<body>
+    <h2>Preencha a Matriz 3x4</h2>
+    <textarea id="texto" placeholder="Digite os numeros da matriz..."></textarea>
+    <button onclick="monteMatriz()">Resultado</button>
+    
+    <script>
+        function monteMatriz(){
+            const input = document.getElementById("texto").value;
+            const numeros = input.split(/[\s,]+/).map(Number);
+
+            let todos = "";
+            let contador = 0;
+
+            let sL1 = 0, sL2 = 0, sL3 = 0;
+            let sC1 = 0, sC2 = 0, sC3 = 0, sC4 = 0;
+
+            for (let i = 0; i < 3; i++) { // Linhas
+                for (let j = 0; j < 4; j++) { // Colunas
+                    let num = numeros[contador];
+                    todos += "[" + num + "] ";
+
+
+                    if (i === 0)
+                         sL1 += num; 
+                    if (i === 1) 
+                        sL2 += num; 
+                    if (i === 2) 
+                        sL3 += num;
+
+                    if (j === 0) 
+                        sC1 += num;
+                    if (j === 1)
+                        sC2 += num;
+                    if (j === 2)
+                        sC3 += num;
+                    if (j === 3)
+                        sC4 += num;
+                    
+
+                    contador++;
+                }
+                todos += "\n"; 
+            }
+          
+            alert(
+                "Matriz Digitada:\n" + todos + "\n" +
+                "SOMA DAS LINHAS:\n" +
+                "Linha 1: " + sL1 + "\n" +
+                "Linha 2: " + sL2 + "\n" +
+                "Linha 3: " + sL3 + "\n\n" +
+                "SOMA DAS COLUNAS:\n" +
+                "C1: " + sC1 + " | C2: " + sC2 + " | C3: " + sC3 + " | C4: " + sC4
+            );
+    }
+    </script>
+</body>
+</html>

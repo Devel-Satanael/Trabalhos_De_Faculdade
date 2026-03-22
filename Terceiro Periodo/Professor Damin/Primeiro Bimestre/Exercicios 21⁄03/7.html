@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 7 - Transposta</title>
+</head>
+<body>
+    <h2>Matriz 4x4 e sua Transposta</h2>
+    <textarea id="texto" placeholder="Digite os 16 números..."></textarea>
+    <button onclick="monteMatriz()">Resultado</button>
+    
+    <script>
+        function monteMatriz(){
+            const input = document.getElementById("texto").value;
+            const numeros = input.trim().split(/[\s,]+/).map(Number);
+
+            if (numeros.length < 16) {
+                alert("Por favor, digite 16 números!");
+                return;
+            }
+
+            let todos = "";   
+            let trans = "";    
+            let matriz = [[], [], [], []];
+            
+            let contador = 0;
+
+           
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    let num = numeros[contador];
+                    matriz[i][j] = num; 
+                    todos += "[" + num + "] ";
+                    contador++;
+                }
+                todos += "\n";
+            }
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    trans += "[" + matriz[j][i] + "] ";
+                }
+                trans += "\n";
+            }
+
+            alert(
+                "Matriz Digitada:\n" + todos + "\n" +
+                "Matriz Transposta (Linhas viram Colunas):\n" + trans 
+            );
+        }
+    </script>
+</body>
+</html>

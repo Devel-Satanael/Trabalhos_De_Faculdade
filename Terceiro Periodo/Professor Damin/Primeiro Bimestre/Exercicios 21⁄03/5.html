@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h2>Preencha a Matriz 5x5</h2>
+    <textarea id="texto" placeholder="Digite os numeros da matriz..."></textarea>
+    <button onclick="monteMatriz()">Resultado</button>
+    
+    <script>
+        function monteMatriz(){
+            
+            const input = document.getElementById("texto").value
+            const numeros = input.split(/[\s,]+/).map(Number);
+
+            let todos = "";
+            let par = "";
+            let impar = 0;
+            let contador = 0;
+            let soma = 0;
+
+            for (let i = 0; i < 5; i++){
+                for (let j = 0; j < 5; j++){
+                    
+                    let num = numeros[contador];
+                    todos += "[" + num + "]";
+                    
+                    soma += num;
+
+                    if (num % 2 === 0){
+                        par += "[" + num + "]";
+                    }else{
+                        impar++;
+                    }
+                    contador++;
+                }
+                todos += "\n"; 
+            }
+            
+          
+            alert(
+                "a) Matriz Digitada:\n" + todos + "\n" +
+                "b) Os numeros páres são: " + par + "\n" +
+                "c) Quantidade de impáres são: " + impar
+            );
+        }
+    </script>
+</body>
+</html>

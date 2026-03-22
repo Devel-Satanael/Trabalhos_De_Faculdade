@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 10</title>
+</head>
+<body>
+    <h2>Matriz 5x5: Diagonal e Triângulo Superior</h2>
+    <textarea id="texto" placeholder="Digite 25 números..."></textarea>
+    <button onclick="processar()">Analisar</button>
+
+    <script>
+        function processar() {
+            const input = document.getElementById("texto").value;
+            const numeros = input.trim().split(/[\s,]+/).map(Number);
+
+            if (numeros.length < 25) return;
+
+            let somaSecundaria = 0;
+            let acimaPrincipal = "";
+            let contador = 0;
+
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    let num = numeros[contador];
+
+                    if (i + j === 4) {
+                        somaSecundaria += num;
+                    }
+
+                    if (j > i) {
+                        acimaPrincipal += num + " ";
+                    }
+
+                    contador++;
+                }
+            }
+
+            alert(
+                "a) Soma da diagonal secundária: " + somaSecundaria + "\n" +
+                "b) Elementos acima da diagonal principal: " + acimaPrincipal
+            );
+        }
+    </script>
+</body>
+</html>

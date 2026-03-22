@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <h2>Preencha a Matriz 3x3</h2>
+    
+    <button onclick="monteMatriz()">Digite os números</button>
+    
+    <script>
+        function monteMatriz(){
+     
+            let matriz = [[], [], []]; 
+            
+            let todos = "";
+            let soma = 0;
+            let Diagonais = 0;
+
+            for (let i = 0; i < 3; i++){
+                for (let j = 0; j < 3; j++){
+                    let Digitado = prompt("Digite o número para a posição: Linha " + i + ", Coluna " + j);
+                    let numero = parseInt(Digitado);
+                    
+                    matriz[i][j] = numero;
+                    todos += numero + " ";
+                    soma += numero;
+
+                    if (i === j){
+                        Diagonais += numero;
+                    }
+                }
+                todos += "\n"; 
+            }
+            
+          
+            alert(
+                "a) Matriz Digitada:\n" + todos + "\n" +
+                "b) Soma de todos os elementos: " + soma + "\n" +
+                "c) Soma da diagonal principal: " + Diagonais
+            );
+        }
+    </script>
+</body>
+</html>

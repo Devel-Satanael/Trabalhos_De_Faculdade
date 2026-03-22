@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h2>Preencha a Matriz 2x2 em cada espaço</h2>
+    <textarea id="texto" placeholder="Digite aqui..."></textarea>
+    <textarea id="texto2" placeholder="Digite aqui..."></textarea>
+    <button onclick="resolva()">Resolva</button>
+    
+    <script>
+        function resolva(){
+            
+            const input = document.getElementById("texto").value;
+            const input2 = document.getElementById("texto2").value;
+            
+            const numeros = input.split(/[\s,]+/).map(Number);
+            const numeros2 = input2.split(/[\s,]+/).map(Number);
+        
+            let matrizDigitada = "";
+            let matrizDigitada2 = "";
+            let contador = 0;
+
+            let soma = 0;
+            let resultado = "";
+
+            for (let i = 0; i < 2; i++){
+                for (let j = 0; j < 2; j++){
+                    
+                    let num = numeros[contador]
+                    let num2 = numeros2[contador]
+
+                    matrizDigitada += "[" + num + "]";
+                    matrizDigitada2 += "[" + num2 + "]";
+
+                    soma = num + num2;
+
+                    resultado += "[" + soma + "]";
+                    
+                    contador ++;
+                }
+                resultado += "\n"; 
+                matrizDigitada += "\n";
+                matrizDigitada2 += "\n"; 
+
+            }
+            
+          
+            alert(
+                "a) A Primeira Matriz Digitada:\n" + matrizDigitada + "\n" +
+                "b) A Segunda Matriz Digitada:\n" + matrizDigitada2 + "\n" +
+                "c) O resultado da soma é:\n" + resultado   
+            );
+        }
+    </script>
+</body>
+</html>

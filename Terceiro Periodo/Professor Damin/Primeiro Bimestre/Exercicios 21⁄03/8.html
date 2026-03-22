@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 7</title>
+</head>
+<body>
+    <h2>Verificar Matriz Identidade 4x4</h2>
+    <textarea id="texto" placeholder="Digite os 16 números..."></textarea>
+    <button onclick="monteMatriz()">Verificar</button>
+    
+    <script>
+        function monteMatriz(){
+            const input = document.getElementById("texto").value;
+            const numeros = input.trim().split(/[\s,]+/).map(Number);
+
+            let todos = "";
+            let contador = 0;
+            let ehIdentidade = true; 
+
+            for (let i = 0; i < 4; i++){
+                for (let j = 0; j < 4; j++){
+                    let num = numeros[contador];
+                    todos += "[" + num + "] ";
+
+                    
+                    if (i === j) {
+                        if (num !== 1) {
+                            ehIdentidade = false;
+                        }
+                    } 
+                    
+                    else {
+                        if (num !== 0) {
+                            ehIdentidade = false;
+                        }
+                    }
+
+                    contador++;
+                }
+                todos += "\n"; 
+            }
+            
+            let resposta = ehIdentidade ? "SIM, é uma matriz identidade!" : "NÃO é uma matriz identidade.";
+          
+            alert(
+                "Matriz Digitada:\n" + todos + "\n" +
+                "Resultado: " + resposta
+            );
+        }
+    </script>
+</body>
+</html>

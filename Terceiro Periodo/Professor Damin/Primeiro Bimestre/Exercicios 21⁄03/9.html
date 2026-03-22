@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 9</title>
+</head>
+<body>
+    <h2>Multiplicação de Matrizes (2x3 e 3x2)</h2>
+    <textarea id="txtA" placeholder="Matriz A (6 números)"></textarea>
+    <textarea id="txtB" placeholder="Matriz B (6 números)"></textarea>
+    <button onclick="multiplicar()">Calcular</button>
+
+    <script>
+        function multiplicar() {
+            const numA = document.getElementById("txtA").value.trim().split(/[\s,]+/).map(Number);
+            const numB = document.getElementById("txtB").value.trim().split(/[\s,]+/).map(Number);
+
+            if (numA.length < 6 || numB.length < 6) return;
+
+            let matA = [
+                [numA[0], numA[1], numA[2]],
+                [numA[3], numA[4], numA[5]]
+            ];
+
+            let matB = [
+                [numB[0], numB[1]],
+                [numB[2], numB[3]],
+                [numB[4], numB[5]]
+            ];
+
+            let resultado = [[0, 0], [0, 0]];
+            let strFinal = "";
+
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 2; j++) {
+                    for (let k = 0; k < 3; k++) {
+                        resultado[i][j] += matA[i][k] * matB[k][j];
+                    }
+                    strFinal += "[" + resultado[i][j] + "] ";
+                }
+                strFinal += "\n";
+            }
+
+            alert("Resultado da Multiplicação (2x2):\n" + strFinal);
+        }
+    </script>
+</body>
+</html>
